@@ -18,7 +18,7 @@
     const stripe = Stripe("pk_test_51RTXnl2YR9Z9yyUCukWmBDz3PV5wYqNyerzGmO5xkZ26qarSjt9SdlpByXZrcfTngeznt4MYYrLMB1qpRBmr6eBZ00g3yxEvq2");
 
     document.getElementById("donateBtn").addEventListener("click", () => {
-      fetch("http://oyster-app-bjoyd.ondigitalocean.app/create-checkout-session", {
+      fetch("https://oyster-app-bjoyd.ondigitalocean.app/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
