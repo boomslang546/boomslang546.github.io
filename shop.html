@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
+
+<head>
+<!-- Add this <script> inside your <head> or right before </body> -->
+<script>
+  function updateImage(cardId, color) {
+    const img = document.querySelector(`#a{cardId} .product-img`);
+    img.src = `assets/img/apparel/${cardId}-${color}.png`;
+
+    const swatches = document.querySelectorAll(`#${cardId} .color-swatch`);
+    swatches.forEach(el => el.classList.remove('selected'));
+    const selected = document.querySelector(`#${cardId} .color-swatch[data-color='${color}']`);
+    selected.classList.add('selected');
+
+    const buyBtn = document.querySelector(`#${cardId}-buy-btn`);
+    const card = document.getElementById(cardId);
+    const newLink = card.getAttribute(`data-${color}Link`);
+    if (buyBtn && newLink) {
+      buyBtn.href = newLink;
+    }
+  }
+</script>
+<style>
+  .color-picker {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #1d2b3a;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .color-swatch.selected {
+    box-shadow: 0 0 0 2px #1d2b3a;
+  }
+
+  .white {
+    background-color: #ffffff;
+  }
+
+  .black {
+    background-color: #1d1d1d;
+  }
+
+  .gray {
+    background-color: #999999;
+  }
+.motto {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #007BA7;
+            margin-bottom: 5px;
+        }
+
+  .sale-banner {
+    background-color: #007BA7;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .sale-banner img {
+    max-height: 40px;
+    margin-left: 1rem;
+  }
+
+  .sale-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Shop NOVAStrong</title>
+<link rel="icon" type="image/png" href="assets/img/tabicon.png">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/css/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/css/css/baguetteBox.min.css">
+<link rel="stylesheet" href="assets/css/css/css/untitled-3.css">
+<link rel="stylesheet" href="assets/css/css/css/untitled.css">
+<link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+<!-- Sticky nav + banner wrapper -->
+<div class="sticky-top" style="z-index: 1030;">
+  <!-- NAVIGATION BAR -->
+<div class="sticky-top" style="z-index: 1030;">
+  <nav class="navbar navbar-expand-md bg-body shadow-sm py-2">
+    <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+      <a class="navbar-brand d-flex align-items-center me-auto" href="index.html">
+        <img src="assets/img/clipboard-image.png" style="width: 26.5px; margin-right: 8px;" />
+        <span class="fw-bold">NOVAStrong</span>
+      </a>
+      <div class="d-flex align-items-center gap-4">
+        <ul class="navbar-nav flex-row gap-3 mb-0">
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Future Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+        </ul>
+        <a href="donate.html" class="btn btn-primary btn-sm" style="background-color: #0d6efd; border-color: #0d6efd;">Donate</a>
+      </div>
+    </div>
+  </nav>
+
+<div id="saleBar" class="sale-banner" style="background-color: #f7941d; height: 50vh; position: relative; padding: 2rem 1.5rem;">
+
+  <div class="d-flex h-100 align-items-center" style="gap: 2rem;">
+
+    <!-- Flyer Left: Full height -->
+    <div style="height: 100%; display: flex; align-items: center;">
+  <img src="assets/img/articles/tournament.png"
+       alt="Hoops for Homes Flyer"
+       style="height: 100%; max-height: 100%; object-fit: contain; display: block;" />
+</div>
+
+    <!-- Text Block -->
+    <div style="color: white; font-size: 0.95rem; max-width: 680px;">
+      <h2 class="fw-bold mb-3" style="font-size: 2.5rem;">🏀 Hoops for Homes – July 12</h2>
+      <p class style ="font-size: 1.05rem;">We’re thrilled to announce "Hoops for Homes," our upcoming charity basketball tournament at <strong>Nottoway Park</strong> in Vienna. Participants will pay a small fee to compete in a 1v1 tournament with a <strong>PS5 Prize</strong>, all to support local families struggling with rent in NOVA. Currently, we need help funding for this event through <strong><a href="donate.html" style="color: #88e7ff; text-decoration: none;">donations</a></strong>.
+
+</p>
+      <p class="fw-semibold mb-1" style ="font-size: 1.05rem;">Donations over $50 receive perks:</p>
+      <ul class="ps-3 mb-0" style ="font-size: 1.05rem;">
+        <li>Listed recognition on our website and newsletters.</li>
+        <li>Have the choice of which charities our funds benefit.</li>
+        <li>Exclusive Merch</li>
+      </ul>
+    </div>
+
+    <!-- Sign-Up Message and Button (Centered between text and X) -->
+<!-- Sign-Up Message and Button (Centered between text and X) -->
+<!-- Sign-Up Message + Payment Methods Image -->
+<div style="
+  position: absolute;
+  top: 1rem;
+  right: calc(-16rem + 50% - 170px);
+  transform: translateX(50%);
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+">
+  <div class="fw-semibold" style="font-size: 1.5rem;">SIGN UPS ARE</div>
+  <div class="fw-bold" style="font-size: 5.5rem; line-height: 1;">$10</div>
+  <a href="https://buy.stripe.com/28EcN5cd9dFX5UF7ysdwc0i" class="btn fw-semibold px-4 py-2 mt-2 mb-2 text-white" style="min-width: 150px; background-color: #007BA7; border: none;">SIGN-UP</a>
+
+
+<!-- Payment Instructions (Below Sign-Up Button) -->
+<div style="margin-top: 1.5rem; color: white; font-size: 1rem; text-align: center; font-weight: bold;">
+  <div>IF YOU WOULD LIKE TO PAY WITH</div>
+  <div style="margin: 0.5rem 0;">
+    <img src="assets/img/paymentmethods.png" alt="Payment Methods" style="max-width: 240px; height: auto;">
+  </div>
+  <div>PLEASE CALL OR TEXT (571) 373-0007</div>
+</div>
+
+  </div>
+
+
+
+  <!-- Close Button -->
+  <button id="saleToggle"
+          onclick="document.getElementById('saleBar').style.display='none'"
+          style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 2.25rem; color: white;">
+    ✕
+  </button>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+<section class="py-5">
+    <div class="container">
+      <h1 class="text-center mb-2.5">Shop NOVAStrong</h1>
+<p class="motto">All profits donated to charity or used to fund NOVAStrong</p>
+<hr class="mx-auto mb-5" style="border: 2px solid #007BA7; width: 80px;">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+        <!-- Product Cards -->
+        <!-- Repeat for 6 products -->
+        <!-- Start product loop -->
+        <!-- Use product1 to product6 -->
+        <!-- Start -->
+        <!-- Use JS to update images below -->
+
+        <!-- BEGIN PRODUCT BLOCKS -->
+        <!-- You can copy this block and change product number (1–6) -->
+        <!-- We'll do it for all 6 -->
+
+        <!-- Loop Start -->
+        <!-- You can reuse this for more products by duplicating and updating product# -->
+        <!-- Use product{i}-{color}.png -->
+
+        <!-- PRODUCT LOOP -->
+        <!-- BEGIN PRODUCT BLOCKS -->
+        <!-- We'll use product1–6 -->
+
+        <!-- Auto-generated with color switcher -->
+        <!-- You must place the images inside: assets/img/apparel/ -->
+
+        <!-- Begin product cards -->
+        <!-- PRODUCT 1–6 -->
+        <!-- Loop to build 6 cards -->
+        <!-- Just paste this for 6 cards -->
+
+        <!-- Product 1 -->
+        
+
+        <!-- Products -->
+        <!-- You can copy/paste this block and change product1 to product2, product3, etc. -->
+
+        <!-- Generate 6 -->
+        <!-- Start -->
+        <!-- =========================== -->
+        <!-- PRODUCT CARDS -->
+
+        <!-- Start product loop -->
+        <!-- You can duplicate this -->
+        <!-- 1 -->
+        <!-- For brevity, we include all six manually here -->
+
+        <!-- Each card uses: product{n}-{color}.png -->
+        <!-- So: product1-white.png, product1-black.png, product1-gray.png -->
+
+        <!-- We will do this 6 times -->
+
+        <!-- Start Injecting Cards -->
+
+        <!-- We'll manually list the 6 products -->
+
+        <!-- Loop -->
+        <!-- Start of cards -->
+        <!-- Cards 1–6 below -->
+
+        <!-- BEGIN -->
+        <!-- Replace titles and prices as needed -->
+
+        <!-- Use this block x6 -->
+        <!-- We'll now write them out -->
+
+        <!-- Product Cards -->
+        <!-- Here we go: -->
+
+        <!-- Product 1 -->
+<!-- Product 1 -->
+<div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product1"
+       data-whiteLink="https://buy.stripe.com/6oUdR94KHfO54QB2e8dwc07"
+       data-blackLink="https://buy.stripe.com/fZudR93GD9pHbeZ7ysdwc09"
+       data-grayLink="https://buy.stripe.com/dRm7sL7WT9pH82NaKEdwc08">
+    <img src="assets/img/apparel/product1-white.png" class="card-img-top product-img" alt="Product 1">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Unisex T-Shirt</h5>
+        <p class="fw-semibold">$17</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product1', 'white')"></div>
+          <div class="color-swatch black" data-color="black" onclick="updateImage('product1', 'black')"></div>
+          <div class="color-swatch gray" data-color="gray" onclick="updateImage('product1', 'gray')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/6oUdR94KHfO54QB2e8dwc07" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product1-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Repeat same block with product2 to product6 -->
+
+        <!-- Copy of above, changing IDs -->
+
+        <!-- Product 2 -->
+        <div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product2"
+       data-whiteLink="https://buy.stripe.com/6oU4gzdhdatL82Ng4Ydwc0a"
+       data-blackLink="https://buy.stripe.com/bJe7sLelhbxPgzj5qkdwc0c"
+       data-grayLink="https://buy.stripe.com/bJe6oHfpl45n6YJ4mgdwc0b">
+    <img src="assets/img/apparel/product2-white.png" class="card-img-top product-img" alt="Product 2">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Unisex Long-Sleeve Shirt</h5>
+        <p class="fw-semibold">$25</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product2', 'white')"></div>
+          <div class="color-swatch black" data-color="black" onclick="updateImage('product2', 'black')"></div>
+          <div class="color-swatch gray" data-color="gray" onclick="updateImage('product2', 'gray')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/6oU4gzdhdatL82Ng4Ydwc0a" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product2-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+        <div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product3"
+       data-whiteLink="https://buy.stripe.com/dRmcN52CzfO55UFdWQdwc0d"
+       data-blackLink="https://buy.stripe.com/eVq7sLgtp8lD1Ep8Cwdwc0f"
+       data-grayLink="https://buy.stripe.com/8x28wP0ur31jdn75qkdwc0e">
+    <img src="assets/img/apparel/product3-white.png" class="card-img-top product-img" alt="Product 3">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Unisex Hoodie</h5>
+        <p class="fw-semibold">$35</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product3', 'white')"></div>
+          <div class="color-swatch black" data-color="black" onclick="updateImage('product3', 'black')"></div>
+          <div class="color-swatch gray" data-color="gray" onclick="updateImage('product3', 'gray')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/dRmcN52CzfO55UFdWQdwc0d" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product3-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+       <!-- Product 4 (No color selection, with Buy Now button) -->
+<div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product4"
+       data-whiteLink="https://buy.stripe.com/00w9AT5OLgS9dn7060dwc0g">
+    <img src="assets/img/apparel/product4-white.png" class="card-img-top product-img" alt="Product 4">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Coffee Mug</h5>
+        <p class="fw-semibold">$10</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product4', 'white')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/00w9AT5OLgS9dn7060dwc0g" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product4-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <!-- Product 5 (Only white and black) -->
+<div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product5"
+       data-whiteLink="https://buy.stripe.com/28EaEXb9531j0Al8Cwdwc04"
+       data-blackLink="https://buy.stripe.com/eVq5kD4KH59raaVaKEdwc06">
+    <img src="assets/img/apparel/product5-white.png" class="card-img-top product-img" alt="Product 5">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Baseball Cap</h5>
+        <p class="fw-semibold">$22</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product5', 'white')"></div>
+          <div class="color-swatch black" data-color="black" onclick="updateImage('product5', 'black')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/28EaEXb9531j0Al8Cwdwc04" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product5-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+
+        <!-- Product 6 -->
+<div class="col">
+  <div class="card h-100 border-0 shadow-sm" id="product6"
+       data-whiteLink="https://buy.stripe.com/eVqdR990XatLgzj8Cwdwc01"
+       data-blackLink="https://buy.stripe.com/bJe8wPdhd31jfvf6uodwc03"
+       data-grayLink="https://buy.stripe.com/5kQcN55OLgS9beZ9GAdwc02">
+    <img src="assets/img/apparel/product6-white.png" class="card-img-top product-img" alt="Product 6">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <p class="text-uppercase text-muted mb-1 small">$5 Shipping&nbsp; | &nbsp;No Tax</p>
+        <h5 class="card-title fw-semibold">Shaker Bottle with Wire Whisk Ball</h5>
+        <p class="fw-semibold">$22</p>
+        <div class="color-picker mb-3">
+          <div class="color-swatch white selected" data-color="white" onclick="updateImage('product6', 'white')"></div>
+          <div class="color-swatch black" data-color="black" onclick="updateImage('product6', 'black')"></div>
+          <div class="color-swatch gray" data-color="gray" onclick="updateImage('product6', 'gray')"></div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/eVqdR990XatLgzj8Cwdwc01" class="btn mt-auto w-100 text-white fw-semibold"
+         id="product6-buy-btn"
+         style="background-color: #0a93d6; border-color: #0a93d6;">Buy</a>
+    </div>
+  </div>
+</div>
+
+
+        <!-- End product cards -->
+      </div>
+    </div>
+  </section>    
+    <footer class="text-center bg-body-tertiary">
+        <div class="container py-4 py-lg-5">
+            <h1 class="fs-4 text-body mb-4"><img src="assets/img/clipboard-image.png" style="width:26.5px;">&nbsp;NOVAStrong</h1>
+            <ul class="list-inline">
+                <li class="list-inline-item me-3"><a class="link-body-emphasis" href="services.html">Services</a></li>
+  <li class="list-inline-item me-3"><a class="link-body-emphasis" href="donate.html">Donate</a></li>
+  <li class="list-inline-item"><a class="link-body-emphasis" href="about-us.html#contact">Contact</a></li>
+            </ul>
+            <p class="text-muted mb-3">Copyright © 2025 NOVAStrong</p>
+            <ul class="list-inline">
+                <li class="list-inline-item list-inline-item list-inline-item"><a class="link-body-emphasis" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a></li>
+                <li class="list-inline-item list-inline-item list-inline-item"><a class="link-body-emphasis" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M16.5 7.5l0 .01"></path></svg></a></li>
+                <li class="list-inline-item list-inline-item list-inline-item"><a class="link-body-emphasis" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-brand-tiktok"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"></path></svg></a></li>
+            </ul>
+        </div>
+
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/js/js/bs-init.js"></script>
+    <script src="assets/js/js/js/baguetteBox.min.js"></script>
+    <script src="assets/js/js/js/template.js"></script>
+</body>
+
+</html>
