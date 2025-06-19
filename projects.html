@@ -63,22 +63,28 @@
 
 <nav class="navbar navbar-expand-md sticky-top bg-body shadow-sm py-2">
   <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-    <!-- Logo far left -->
+    <!-- Logo left -->
     <a class="navbar-brand d-flex align-items-center me-auto" href="index.html">
       <img src="assets/img/clipboard-image.png" style="width: 26.5px; margin-right: 8px;" />
       <span class="fw-bold">NOVAStrong</span>
     </a>
 
-    <!-- Nav and Donate far right -->
-    <div class="d-flex align-items-center gap-4">
-      <ul class="navbar-nav flex-row gap-3 mb-0">
-        <!-- Removed Home -->
-<li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li><li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+    <!-- Hamburger button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBlog"
+      aria-controls="navbarBlog" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav items & donate button -->
+    <div class="collapse navbar-collapse" id="navbarBlog">
+      <ul class="navbar-nav ms-auto me-1">
+        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        
         <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
       </ul>
-      <a href="donate.html" class="btn btn-primary btn-sm" style="background-color: #0d6efd; border-color: #0d6efd;">Donate</a>
+      <a href="donate.html" class="btn btn-primary btn-sm ms-md-3 mt-2 mt-md-0"
+         style="background-color: #0d6efd; border-color: #0d6efd;">Donate</a>
     </div>
   </div>
 </nav>
@@ -150,9 +156,10 @@
     </div>
 </footer>
 
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
 <script src="assets/js/bs-init.js"></script>
 <script src="assets/js/baguetteBox.min.js"></script>
 <script src="assets/js/template.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
 </body>
 </html>

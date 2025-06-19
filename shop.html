@@ -2,7 +2,7 @@
 <html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
 
 <head>
-<!-- Add this <script> inside your <head> or right before </body> -->
+
 <script>
   function updateImage(cardId, color) {
     const img = document.querySelector(`#a{cardId} .product-img`);
@@ -105,23 +105,33 @@
 <div class="sticky-top" style="z-index: 1030;">
   <!-- NAVIGATION BAR -->
 <div class="sticky-top" style="z-index: 1030;">
-  <nav class="navbar navbar-expand-md bg-body shadow-sm py-2">
-    <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-      <a class="navbar-brand d-flex align-items-center me-auto" href="index.html">
-        <img src="assets/img/clipboard-image.png" style="width: 26.5px; margin-right: 8px;" />
-        <span class="fw-bold">NOVAStrong</span>
-      </a>
-      <div class="d-flex align-items-center gap-4">
-        <ul class="navbar-nav flex-row gap-3 mb-0">
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">Future Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-        </ul>
-        <a href="donate.html" class="btn btn-primary btn-sm" style="background-color: #0d6efd; border-color: #0d6efd;">Donate</a>
-      </div>
+  <nav class="navbar navbar-expand-md sticky-top bg-body shadow-sm py-2">
+  <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+    <!-- Logo left -->
+    <a class="navbar-brand d-flex align-items-center me-auto" href="index.html">
+      <img src="assets/img/clipboard-image.png" style="width: 26.5px; margin-right: 8px;" />
+      <span class="fw-bold">NOVAStrong</span>
+    </a>
+
+    <!-- Hamburger button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBlog"
+      aria-controls="navbarBlog" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav items & donate button -->
+    <div class="collapse navbar-collapse" id="navbarBlog">
+      <ul class="navbar-nav ms-auto me-1">
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Future Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+      </ul>
+      <a href="donate.html" class="btn btn-primary btn-sm ms-md-3 mt-2 mt-md-0"
+         style="background-color: #0d6efd; border-color: #0d6efd;">Donate</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
 <div id="saleBar" class="sale-banner" style="background-color: #f7941d; height: 50vh; position: relative; padding: 2rem 1.5rem;">
 
@@ -445,12 +455,11 @@
         </div>
 
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/js/bootstrap/js/bootstrap.min.js"></script>
+    
     <script src="assets/js/js/js/bs-init.js"></script>
     <script src="assets/js/js/js/baguetteBox.min.js"></script>
     <script src="assets/js/js/js/template.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
 </body>
 
 </html>
