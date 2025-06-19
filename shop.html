@@ -5,7 +5,7 @@
 
 <script>
   function updateImage(cardId, color) {
-    const img = document.querySelector(`#a{cardId} .product-img`);
+    const img = document.querySelector(`#${cardId} .product-img`);
     img.src = `assets/img/apparel/${cardId}-${color}.png`;
 
     const swatches = document.querySelectorAll(`#${cardId} .color-swatch`);
@@ -82,6 +82,128 @@
     font-size: 1rem;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+  #saleBar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto !important;
+  }
+
+  #saleBar > div {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  #saleBar img {
+    max-height: 180px !important;
+    height: auto !important;
+  }
+
+  #saleBar .sale-text-block {
+    max-width: 100% !important;
+  }
+
+  #saleBar .signup-box {
+    position: static !important;
+    transform: none !important;
+    margin-top: 1.5rem;
+  }
+
+  #saleToggle {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    transform: none !important;
+  }
+    #saleBar .sale-text-block h2 {
+    font-size: 1.25rem !important;
+  }
+
+  #saleBar .sale-text-block p,
+  #saleBar .sale-text-block ul,
+  #saleBar .sale-text-block li {
+    font-size: 0.75rem !important;
+  }
+
+  #saleBar .signup-box .fw-semibold {
+    font-size: 1rem !important;
+  }
+
+  #saleBar .signup-box .fw-bold {
+    font-size: 2.5rem !important;
+  }
+
+  #saleBar .signup-box img {
+    max-width: 160px !important;
+  }
+
+  #saleBar .signup-box div {
+    font-size: 0.75rem !important;
+  }
+
+  /* Force the layout to stack vertically */
+#saleBar {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  height: auto !important;
+}
+
+/* Wrapper to layout text and signup left, flyer right */
+#saleBar > div {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start;
+  gap: 1rem !important;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Text and signup group side-by-side (in a vertical stack) */
+#saleBar .sale-text-block {
+  flex: 1 1 60%;
+  text-align: left !important;
+}
+
+/* Make the signup box float to the left below text */
+#saleBar .signup-box {
+  flex: 1 1 35%;
+  text-align: left !important;
+  align-items: flex-start !important;
+  margin-top: 0.5rem;
+  position: static !important;
+  transform: none !important;
+}
+
+/* Make flyer image go to bottom right */
+#saleBar img[alt="Hoops for Homes Flyer"] {
+  order: 3;
+  align-self: flex-end;
+  margin-top: auto;
+  margin-left: auto;
+  max-width: 120px;
+  height: auto !important;
+  display: block;
+}
+#mobileSaleBar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #mobileSaleBar {
+    display: block;
+  }
+
+  #saleBar {
+    display: none !important;
+  }
+  @media (max-width: 768px) {
+    #mobileSaleBar {
+      max-height: none !important;
+    }
+  }
+}
+
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -139,13 +261,17 @@
 
     <!-- Flyer Left: Full height -->
     <div style="height: 100%; display: flex; align-items: center;">
+      
   <img src="assets/img/articles/tournament.png"
        alt="Hoops for Homes Flyer"
+       
        style="height: 100%; max-height: 100%; object-fit: contain; display: block;" />
 </div>
 
+
     <!-- Text Block -->
-    <div style="color: white; font-size: 0.95rem; max-width: 680px;">
+    <div style="color: white; font-size: 0.95rem; max-width: 680px;" class="sale-text-block">
+
       <h2 class="fw-bold mb-3" style="font-size: 2.5rem;">🏀 Hoops for Homes – July 12</h2>
       <p class style ="font-size: 1.05rem;">We’re thrilled to announce "Hoops for Homes," our upcoming charity basketball tournament at <strong>Nottoway Park</strong> in Vienna. Participants will pay a small fee to compete in a 1v1 tournament with a <strong>PS5 Prize</strong>, all to support local families struggling with rent in NOVA. Currently, we need help funding for this event through <strong><a href="donate.html" style="color: #88e7ff; text-decoration: none;">donations</a></strong>.
 
@@ -161,17 +287,10 @@
     <!-- Sign-Up Message and Button (Centered between text and X) -->
 <!-- Sign-Up Message and Button (Centered between text and X) -->
 <!-- Sign-Up Message + Payment Methods Image -->
-<div style="
-  position: absolute;
-  top: 1rem;
-  right: calc(-16rem + 50% - 170px);
-  transform: translateX(50%);
-  text-align: center;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-">
+<div style="position: absolute; top: 1rem; right: calc(-16rem + 50% - 170px); transform: translateX(50%); text-align: center; color: white; display: flex; flex-direction: column; align-items: center;" class="signup-box">
+
+<div class="fw-semibold" style="font-size: 1rem;"><br></div>
+
   <div class="fw-semibold" style="font-size: 1.5rem;">SIGN UPS ARE</div>
   <div class="fw-bold" style="font-size: 5.5rem; line-height: 1;">$10</div>
   <a href="https://buy.stripe.com/28EcN5cd9dFX5UF7ysdwc0i" class="btn fw-semibold px-4 py-2 mt-2 mb-2 text-white" style="min-width: 150px; background-color: #007BA7; border: none;">SIGN-UP</a>
@@ -202,6 +321,69 @@
 
 </div>
 </div>
+
+<!-- MOBILE SALE BAR -->
+<div id="mobileSaleBar" class="d-md-none" style="background-color: #f7941d; padding: 1rem; color: white; font-size: 0.72rem; line-height: 1.3; max-height: 50vh; overflow-y: auto; position: relative;">
+
+  <button onclick="document.getElementById('mobileSaleBar').style.display='none'"
+        style="position: absolute; right: 0.5rem; top: 0.5rem; background: none; border: none; font-size: 1.8rem; color: white; z-index: 10;">
+  ✕
+</button>
+  <!-- Header and Text (full width) -->
+  <div style="text-align: left;">
+    <div style="text-align: center;">
+  <h2 class="fw-bold mb-2" style="font-size: 1.5rem; color: white;">🏀 Hoops for Homes – July 12</h2>
+
+  <p style="font-size: 1.2rem; color: white;">
+    We’re thrilled to announce "Hoops for Homes," our upcoming charity basketball tournament at <strong>Nottoway Park</strong> in Vienna.
+  </p>
+
+  <p style="font-size: 1.2rem; color: white;">
+    Participants will pay a small fee to compete in a 1v1 tournament with a <strong>PS5 Prize</strong>, all to support local families struggling with rent in NOVA. Currently, we need help funding for this event through <a href="donate.html" style="color: #88e7ff; text-decoration: none;">donations</a>.
+  </p>
+</div>
+    <p class="fw-semibold mb-1" style="font-size: 1.2rem;">Donations over $50 receive perks:</p>
+    <ul class="mb-3 ps-3" style="font-size: 1.2rem;">
+      <li>Listed recognition on our website and newsletters.</li>
+      <li>Have the choice of which charities our funds benefit.</li>
+      <li>Exclusive Merch</li>
+    </ul>
+  </div>
+
+<!-- Bottom row: sign-up info left, flyer right -->
+<div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; padding: 0rem;">
+
+  
+  <!-- LEFT: Centered between screen and flyer -->
+  <div style="flex: 1; display: flex; justify-content: center; margin-bottom: 0.5rem; margin-top: 0.5rem;">
+
+    <div style="text-align: center; max-width: 160px;">
+      <div class="fw-semibold" style="font-size: 1rem;">SIGN UPS ARE</div>
+      <div class="fw-bold" style="font-size: 5rem;">$10</div>
+      <a href="https://buy.stripe.com/28EcN5cd9dFX5UF7ysdwc0i"
+         class="btn fw-semibold px-4 py-2 text-white mb-2"
+         style="background-color: #007BA7; font-size: 0.9rem;">SIGN-UP</a>
+
+      <div style="font-size: 0.85rem; font-weight: 500;">IF YOU WOULD LIKE TO PAY WITH</div>
+      <img src="assets/img/paymentmethods.png" alt="Payment Methods"
+           style="max-width: 160px; height: auto;" />
+      <p class="mt-1 mb-0" style="font-size: 0.78rem;">PLEASE CALL OR TEXT <a href="tel:5713730007" style="color: #88e7ff; text-decoration: none;">(571) 373-0007</a></p>
+    </div>
+  </div>
+
+  <!-- RIGHT: Flyer -->
+  <div style="flex-shrink: 0; margin-right: 4rem; margin-bottom: 0.5rem;">
+  <img src="assets/img/articles/tournament.png"
+       alt="Hoops for Homes Flyer"
+       style="max-width: 180px; height: auto;" />
+</div>
+</div>
+
+</div>
+
+
+
+
 
 
 
