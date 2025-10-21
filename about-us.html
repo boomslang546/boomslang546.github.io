@@ -227,5 +227,22 @@
   document.querySelectorAll('.scroll-pop').forEach(el => observer.observe(el));
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+<script>
+  // Align Charlie's image height with peers and crop slightly from the top
+  window.addEventListener('load', function () {
+    const charlieImg = document.querySelector('img[src="assets/img/articles/charlie.JPEG"]');
+    if (!charlieImg) return;
+    const row = charlieImg.closest('.row');
+    if (!row) return;
+    const otherImgs = Array.from(row.querySelectorAll('img')).filter(img => img !== charlieImg);
+    const otherHeights = otherImgs.map(img => img.clientHeight).filter(h => h > 0);
+    if (otherHeights.length === 0) return;
+    const targetHeight = Math.min(...otherHeights);
+    charlieImg.style.height = targetHeight + 'px';
+    charlieImg.style.objectFit = 'cover';
+    // Slightly favor the lower part to trim a bit from the top
+    charlieImg.style.objectPosition = '50% 60%';
+  });
+</script>
 </body>
 </html>
