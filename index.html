@@ -136,32 +136,7 @@
     </form>
 	</div>
     <!-- ✅ Blue Rectangle right under newsletter -->
-    <div class="mt-4 w-100 animate__animated" id="orangeBox" style="opacity: 0; height: 308px; border-radius: 8px; background-color: #f7941d;">
-
-
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between h-100 text-center text-md-start px-4">
-  <!-- Text Block -->
-  <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-white text-center text-md-center" style="flex: 1; max-width: 500px; margin: 0 auto;">
-
-    <h4 class="fw-bold mb-3" style="color: white; font-size: 1.8rem;">
-      🏀HOOPS FOR HOMES - July 12
-    </h4>
-    <p class="mb-3 text-white" style="max-width: 360px;">
-      Join our 1v1 basketball tournament at <strong>Nottoway Park</strong> in Vienna for a chance to win a <strong>PS5</strong>!
-      Sign-up is just <strong>$10</strong> and supports families in need across NOVA.
-    </p>
-    <a href="shop.html" class="btn fw-bold px-4 mt-2 mx-auto" style="background-color: #007BA7; color: white;">Learn More</a>
-
-  </div>
-
-  <!-- PS5 Image on the right -->
-  <div class="d-none d-md-flex justify-content-end ms-4" style="flex-shrink: 0;">
-    <img src="assets/img/ps5.png" alt="PS5 Prize" class="img-fluid" style="max-height: 180px;">
-  </div>
-</div>
-
-
-    </div>
+    <!-- Removed Hoops for Homes promo box -->
   </div>
 </div>
 
@@ -250,20 +225,18 @@
 
 <script>
   const orangeBox = document.getElementById('orangeBox');
-
-  const observerOrange = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        orangeBox.classList.add('animate__fadeInUp');
-        orangeBox.style.opacity = 1;
-        observerOrange.unobserve(orangeBox);
-      }
-    });
-  }, {
-    threshold: 0.3
-  });
-
-  observerOrange.observe(orangeBox);
+  if (orangeBox) {
+    const observerOrange = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          orangeBox.classList.add('animate__fadeInUp');
+          orangeBox.style.opacity = 1;
+          observerOrange.unobserve(orangeBox);
+        }
+      });
+    }, { threshold: 0.3 });
+    observerOrange.observe(orangeBox);
+  }
 </script>
 
 <script src="assets/js/js/js/bs-init.js"></script>
